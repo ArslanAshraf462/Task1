@@ -7,12 +7,7 @@ class PhotoGrid extends StatelessWidget {
   Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(10.0),
-      child: Container(
-        // decoration: BoxDecoration(
-        //   borderRadius: BorderRadius.circular(10.0),
-        // ),
-      child: Image.asset('assets/images/grid.jpg',fit: BoxFit.cover,)
-      ),
+      child: Image.asset('assets/images/grid.jpg',fit: BoxFit.cover,),
     );
   }
 }

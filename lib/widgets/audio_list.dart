@@ -7,22 +7,19 @@ class AudioList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      child: Container(
-        
-        child: ListTile(
-                  leading: CircleAvatar(
-                    backgroundColor: Color(0xffFFD830),
-                    child: Icon(Icons.play_arrow,color: Colors.black,),
-                  ),
-                  title: Text('${DateFormat.yMd().format(DateTime.now())}',
-                  style: TextStyle(color: Color(0xffA8A8A8),),
-                  ),
-                  subtitle: Text('Contrary to popular belief lorem Ipsum',
-                  style: TextStyle(color: Colors.white),
-                  ),
-                  tileColor: Color(0xff292B2E),
+      child: ListTile(
+                leading: const CircleAvatar(
+                  backgroundColor: Color(0xffFFD830),
+                  child: Icon(Icons.play_arrow,color: Colors.black,),
                 ),
-      ),
+                title: Text('${DateFormat.yMMMd().format(DateTime.now())}',
+                style: const TextStyle(color: Color(0xffA8A8A8),),
+                ),
+                subtitle: const Text('Contrary to popular belief lorem Ipsum',
+                style: TextStyle(color: Colors.white),
+                ),
+                tileColor: const Color(0xff292B2E),
+              ),
     );
   }
 }

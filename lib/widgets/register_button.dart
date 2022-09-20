@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:task1/widgets/text_widget.dart';
 
 class RegisterButton extends StatelessWidget {
+  final VoidCallback onPressed;
+  RegisterButton({required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: 290.0,
       height: 40.0,
-      child: ElevatedButton(onPressed: (){}, 
+      child: ElevatedButton(onPressed: onPressed, 
       child: TextWidget(
         text: 'Register', 
         color: Colors.black, 

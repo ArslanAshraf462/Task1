@@ -14,7 +14,7 @@ class VideoList extends StatelessWidget {
                 // child: RegistrationScreenImage(image: 'assets/images/video1.jpg', height: 217.0, width: 343.0),
                child: Image.asset('assets/images/video1.jpg')
                 ),
-                Positioned(
+                const Positioned(
                   left: 145.0,
                   top: 65.0,
                   child: CircleAvatar(

@@ -6,13 +6,15 @@ class VideoMedia extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(left: 16.0,right: 16.0,top: 137.0),
-      child: ListView.builder(
-        itemCount: 10,
-        itemBuilder:  (context, index) {
-        return VideoList();
-      },)
-    );
+    return Expanded(
+            child: Container(
+              margin: const EdgeInsets.only(left: 7.0,right: 7.0,top: 7.0),
+              child: ListView.builder(
+                itemCount: 10,
+                itemBuilder:  (context, index) {
+                return const VideoList();
+              },)
+            ),
+          );
   }
 }

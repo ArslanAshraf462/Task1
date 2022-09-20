@@ -1,35 +1,36 @@
 import 'package:flutter/material.dart';
 
 class PasswordTextField extends StatefulWidget {
+ final TextEditingController controller;
+ PasswordTextField({required this.controller});
 
   @override
   State<PasswordTextField> createState() => _PasswordTextFieldState();
 }
 
 class _PasswordTextFieldState extends State<PasswordTextField> {
-   final controller = TextEditingController();
-  String password='';
   bool isPasswordVisible=false;
-
-   @override
-  void initState() {
-    super.initState();
-    controller.addListener(() {setState(() {
-
-    });});
-  }
   @override
   Widget build(BuildContext context) {
     return Container(
-                padding: EdgeInsets.only(left: 51.0, right: 51.0),
-                child: TextField(
-    onChanged: (value)=>setState(() {
-      this.password=value;
-    }),
-    onSubmitted: (value)=>setState(() {
-      this.password=value;
-    }),
+                padding: const EdgeInsets.only(left: 51.0, right: 51.0),
+                child: TextFormField(
+                  controller: widget.controller,
+    validator: (value) {
+      RegExp regex =
+        RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
+    if (value!.isEmpty) {
+      return 'Please enter password';
+    } else {
+      if (!regex.hasMatch(value)) {
+        return 'Enter valid password';
+      } else {
+        return null;
+      }
+    }
+    },
     obscureText: isPasswordVisible,
+    textInputAction: TextInputAction.done,
     decoration: InputDecoration(
       labelText: 'Password',
       labelStyle: const TextStyle(color: Color(0xffA8A8A8)),
@@ -47,8 +48,8 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
         });
       },
         icon: isPasswordVisible
-          ? const Icon(Icons.visibility_off, color: Color(0xffA8A8A8),)
-          : const Icon(Icons.visibility, color: Color(0xffA8A8A8),),
+          ? const Icon(Icons.visibility, color: Color(0xffA8A8A8),)
+          : const Icon(Icons.visibility_off, color: Color(0xffA8A8A8),),
       ),
     ),
   ),
